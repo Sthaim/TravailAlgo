@@ -3,14 +3,22 @@
 
 int main()
 {
-	int PV=100;
-    printf("Point de vie du monstre :%d\n",PV);
-	while(PV>0){
-	printf("Attaque puissante\n");
-	printf("-20PV\n");
-	PV-=20;
-	printf("Point de vie de %d\n",PV);
+	int PVMonstre=100;
+	int PVJoueur=100;
+  printf("Point de vie du monstre :%d\n",PVMonstre);
+	printf("Point de vie du joueur :%d\n",PVJoueur);
+	do{
+		printf("Attaque puissante du joueur\n");
+		printf("-20PV\n");
+		PVMonstre-=20;
+		printf("Point de vie du monstre :%d\n",PVMonstre);
+		if(PVMonstre>0){
+			printf("Attaque puissante du monstre\n");
+			printf("-20PV\n");
+			PVJoueur-=20;
+			printf("Point de vie du joueur :%d\n",PVJoueur);
+		}
 	}
-	printf("Monstre Mort");
-    return 0;
+	while(PVMonstre>0&&PVJoueur>0);
+  return 0;
 }
