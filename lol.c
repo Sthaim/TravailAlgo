@@ -16,15 +16,15 @@ int main()
   printf("Point de vie du monstre :%d\n",PVMonstre);
 	printf("Point de vie du joueur :%d\n",PVJoueur);
 	do{
-		printf("Choisir entre defense(1) et attaque(2) et Sort de poison(3)\n");
+		printf("Choisir entre defense(1)/attaque(2)/Sort de poison(3) et Antidote(4)\n");
 		scanf("%d",&Choix);
-		while(Choix!=2 && Choix!=1 && Choix!=3){
-			printf("Choisir entre defense(1)/attaque(2) et Sort de poison(3)\n");
+		while(Choix!=2 && Choix!=1 && Choix!=3 && Choix!=4){
+			printf("Choisir entre defense(1)/attaque(2)/Sort de poison(3) et Antidote(4)\n");
 			scanf("%d",&Choix);
 		}
 		while(MPJ<=0 && Choix==3){
 			printf("Pas assez de mana\n");
-			printf("Choisir entre defense(1) et attaque(2)\n");
+			printf("Choisir entre defense(1)/attaque(2) et Antidote(4)\n");
 			scanf("%d",&Choix);
 			}
 		if(Choix==1){
@@ -37,13 +37,15 @@ int main()
 			printf("Point de vie du monstre :%d\n",PVMonstre);
 			Def=1;
 		}
-		else {
+		else if(Choix==3){
 			MPJ-=2;
 			PoisM=1;
-
+		}
+		else{
+			PoisJ=0;
 		}
 		if(PVMonstre>0){
-			Choix=rand()%3+1;
+			Choix=rand()%4+1;
 			while(MPM<=0 && Choix==3){
 				Choix=rand()%3+1;
 			}
@@ -57,9 +59,12 @@ int main()
 				printf("Point de vie du joueur :%d\n",PVJoueur);
 				DefMonst=1;
 			}
-			else{
+			else if(Choix==3){
 				PoisJ=1;
 				MPM-=2;
+			}
+			else{
+				PoisM=0;
 			}
 		}
 		if(PoisM==1){
