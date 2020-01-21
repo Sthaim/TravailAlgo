@@ -11,7 +11,6 @@ int main()
 	PV-=20;
 	printf("Point de vie de %d\n",PV);
 	}
-	printf("Point de vie de %d\n",PV);
 	printf("Monstre Mort");
     return 0;
 }
